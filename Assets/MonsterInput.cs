@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyInput : MonoBehaviour {
+public class MonsterInput : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
