@@ -1,3 +1,6 @@
 *
-!Assets/**
-!ProjectSettings/**
+!Assets/*
+!Assets*
+!Assets/Scripts/*
+!Assets/Scripts*
+!ProjectSettings/*
