@@ -6,7 +6,8 @@ public class ShadowSpawnning : MonoBehaviour {
 
     public GameObject shadow;
 
-    private GameObject myshadow;
+    private GameObject myShadow;
+    private bool hasShadow = false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,12 +21,17 @@ public class ShadowSpawnning : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        myshadow = Instantiate(shadow, this.transform.position + new Vector3(0.5f*this.transform.lossyScale.x + 0.5f*shadow.transform.lossyScale.x, 0,0), Quaternion.identity);
-        myshadow.transform.parent = this.transform;
+        if (!hasShadow && collision.tag == "WindowLight")
+        {
+            hasShadow = true;
+            myShadow = Instantiate(shadow, this.transform.position + new Vector3(0.5f * this.transform.lossyScale.x + 0.5f * shadow.transform.lossyScale.x, 0, 0), Quaternion.identity);
+            myShadow.transform.parent = this.transform;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        Destroy(myshadow);
+        Destroy(myShadow);
+        hasShadow = false;
     }
 }
