@@ -10,6 +10,8 @@ public class MonsterScript : MonoBehaviour {
 
     private Direction lastdir = Direction.Null;
 
+    public GameObject box;
+
     // Use this for initialization
 	void Start () {
 		
@@ -42,5 +44,9 @@ public class MonsterScript : MonoBehaviour {
         if (lastdir == Direction.Right)
             transform.Translate(Vector2.right * Time.deltaTime);
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            box.transform.parent = this.transform;
+        }
     }
 }
