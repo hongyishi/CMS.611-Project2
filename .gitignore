@@ -1,6 +1,3 @@
-*.csproj
-*.sln
-.DS_Store
-Library/**
-Temp/**
-*.userprefs
+*
+!Assets/**
+!ProjectSettings/**
