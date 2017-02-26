@@ -31,7 +31,10 @@ public class ShadowSpawnning : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        Destroy(myShadow);
-        hasShadow = false;
+        if (hasShadow && collision.tag == "WindowLight")
+        {
+            Destroy(myShadow);
+            hasShadow = false;
+        }
     }
 }

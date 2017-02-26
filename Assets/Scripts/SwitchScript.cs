@@ -15,7 +15,7 @@ public class SwitchScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.Return))
+		if (Input.GetKeyDown(KeyCode.Return))
         {
             if (on)
             {

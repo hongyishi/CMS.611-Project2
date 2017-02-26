@@ -6,6 +6,8 @@ public class MonsterScript : MonoBehaviour {
     private bool updownmove = false;
     private bool leftrightmove = false;
 
+    private bool inShadow = false;
+
     enum Direction { Left, Right, Up, Down, Null };
 
     private Direction lastdir = Direction.Null;
@@ -45,7 +47,7 @@ public class MonsterScript : MonoBehaviour {
         if (lastdir == Direction.Right && !updownmove)
             transform.Translate(Vector2.right * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.Space) && !updownmove && !leftrightmove)
+        if (Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
         {
             if (lastdir == Direction.Down || lastdir == Direction.Up)
             {
@@ -58,7 +60,7 @@ public class MonsterScript : MonoBehaviour {
                 box.transform.parent = this.transform;
             }
         }
-        else if (Input.GetKey(KeyCode.Space) && (updownmove || leftrightmove))
+        else if (Input.GetKeyDown(KeyCode.Space) && (updownmove || leftrightmove))
         {
             updownmove = false;
             leftrightmove = false;
@@ -68,12 +70,23 @@ public class MonsterScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "WindowLight")
+        if (other.tag == "Shadow")
+        {
+            inShadow = true;
+        }
+        if ((!inShadow && other.tag == "WindowLight")|| other.tag == "CeilingLight")
         {
             transform.position = initialposition;
             updownmove = false;
             leftrightmove = false;
             box.transform.parent = null;
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Shadow")
+        {
+            inShadow = false;
         }
     }
 }
