@@ -14,3 +14,6 @@ Bugs:
 -Monster Phases through boxes when pushing boxes
 -Monster can still move box, even if monster sprite isn't moving
 -Monster can push box with another box (2 boxes at once)
+-No title screen
+-No Controls/help menu
+-No credits
