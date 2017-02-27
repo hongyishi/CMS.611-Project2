@@ -1010,6 +1010,18 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114012736988004346, guid: ef80c50aca96eae4097fa3068394c914,
+        type: 2}
+      propertyPath: onSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ea96ae68846f784dbc9b26959055572,
+        type: 3}
+    - target: {fileID: 114012736988004346, guid: ef80c50aca96eae4097fa3068394c914,
+        type: 2}
+      propertyPath: offSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3bc178066601ae447b9d5be9ad5549cd,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 33441316533841952, guid: ef80c50aca96eae4097fa3068394c914, type: 2}
     - {fileID: 23033944320508556, guid: ef80c50aca96eae4097fa3068394c914, type: 2}
