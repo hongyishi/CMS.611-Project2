@@ -24,7 +24,8 @@ public class ShadowSpawnning : MonoBehaviour {
         if (!hasShadow && collision.tag == "WindowLight")
         {
             hasShadow = true;
-            myShadow = Instantiate(shadow, this.transform.position + new Vector3(0.5f * this.transform.lossyScale.x + 0.5f * shadow.transform.lossyScale.x, 0, 0), Quaternion.identity);
+            Vector2 dir = collision.gameObject.GetComponent<WindowLightScript>().direction;
+            myShadow = Instantiate(shadow, (Vector2)this.transform.position + dir.normalized*(0.5f * this.transform.lossyScale.x + 0.5f * shadow.transform.lossyScale.x), Quaternion.LookRotation(dir));
             myShadow.transform.parent = this.transform;
         }
     }
