@@ -45,12 +45,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Background
     uniqueID: 4166553517
     locked: 0
   - name: Blocking
     uniqueID: 2275572497
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Monster
+    uniqueID: 2290054511
     locked: 0
