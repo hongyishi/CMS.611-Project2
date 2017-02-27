@@ -66,11 +66,12 @@ public class MonsterScript : MonoBehaviour
             updownmove = false;
             leftrightmove = false;
             box.transform.parent = null;
+            box = null;
         }
         inShadow = false;
         foreach (GameObject g in collideList)
         {
-            if (box == null && g.tag == "Box" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
+            if (box == null && g!= null && g.tag == "Box" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
             {
                 if (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.up)) < 45)
                 {
@@ -116,6 +117,7 @@ public class MonsterScript : MonoBehaviour
                     updownmove = false;
                     leftrightmove = false;
                     box.transform.parent = null;
+                    box = null;
                 }
                 transform.position = initialposition;
             }
