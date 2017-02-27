@@ -18,7 +18,7 @@ public class TimerScript : MonoBehaviour {
             Application.Quit();
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Application.LoadLevel(0);
         }
