@@ -57,3 +57,6 @@ TagManager:
   - name: Monster
     uniqueID: 2290054511
     locked: 0
+  - name: Child
+    uniqueID: 3391280599
+    locked: 0
