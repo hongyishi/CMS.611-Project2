@@ -12,9 +12,9 @@ public class MonsterScript : MonoBehaviour
     enum Direction { Left, Right, Up, Down, Null };
 
     private Direction lastdir = Direction.Null;
-
-    public GameObject box;
+    
     private Vector3 initialposition;
+    private GameObject box = null;
 
     // Use this for initialization
     void Start()
@@ -51,7 +51,7 @@ public class MonsterScript : MonoBehaviour
             transform.Translate(Vector2.right * Time.deltaTime);
 
 
-        if (Input.GetKeyDown(KeyCode.E) && (updownmove || leftrightmove))
+        if (box != null && Input.GetKeyDown(KeyCode.E) && (updownmove || leftrightmove))
         {
             updownmove = false;
             leftrightmove = false;
@@ -65,7 +65,7 @@ public class MonsterScript : MonoBehaviour
         {
             inShadow = true;
         }
-        if ((!inShadow && other.tag == "WindowLight") || other.tag == "CeilingLight")
+        if (box != null && (!inShadow && other.tag == "WindowLight") || other.tag == "CeilingLight")
         {
             transform.position = initialposition;
             updownmove = false;
@@ -91,14 +91,14 @@ public class MonsterScript : MonoBehaviour
                 Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.down)) < 45)
             {
                 updownmove = true;
-                collision.gameObject.transform.parent = this.transform;
             }
             else if (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.left)) < 45 ||
                 Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.right)) < 45)
             {
                 leftrightmove = true;
-                collision.gameObject.transform.parent = this.transform;
             }
+            collision.gameObject.transform.parent = this.transform;
+            box = collision.gameObject;
         }
     }
 }

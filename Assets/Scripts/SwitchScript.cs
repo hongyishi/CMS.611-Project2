@@ -16,7 +16,6 @@ public class SwitchScript : MonoBehaviour
     }
     public void flipSwitch()
     {
-        Debug.Log("Flip");
         if (on)
         {
             foreach (GameObject ceilingLight in allCeilingLights)
