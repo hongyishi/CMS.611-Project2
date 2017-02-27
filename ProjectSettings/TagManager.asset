@@ -61,3 +61,9 @@ TagManager:
   - name: Child
     uniqueID: 3391280599
     locked: 0
+  - name: CeilingLight
+    uniqueID: 4013910967
+    locked: 0
+  - name: Walls
+    uniqueID: 4215442527
+    locked: 0
