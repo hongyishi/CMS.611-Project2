@@ -16,6 +16,8 @@ public class MonsterScript : MonoBehaviour
     private Vector3 initialposition;
     private GameObject box = null;
 
+    private List<GameObject> collideList = new List<GameObject>();
+
     public int speed = 1;
 
     // Use this for initialization
@@ -59,53 +61,53 @@ public class MonsterScript : MonoBehaviour
             leftrightmove = false;
             box.transform.parent = null;
         }
+        inShadow = false;
+        foreach (GameObject g in collideList) {
+            if (box == null && g.tag == "Box" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
+            {
+                if ((Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.up)) < 45) ||
+                    (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.down)) < 45))
+                {
+                    updownmove = true;
+
+                    g.transform.parent = this.transform;
+                    box = g;
+                }
+                else if ((Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.left)) < 45) ||
+                   (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.right)) < 45))
+                {
+                    leftrightmove = true;
+
+                    g.transform.parent = this.transform;
+                    box = g;
+                }
+            }
+            if (g.tag == "Shadow")
+            {
+                inShadow = true;
+            }
+        }
+        foreach (GameObject g in collideList)
+        {
+            if ((!inShadow && g.tag == "WindowLight") || g.tag == "CeilingLight")
+            {
+                if (box != null)
+                {
+                    updownmove = false;
+                    leftrightmove = false;
+                    box.transform.parent = null;
+                }
+                transform.position = initialposition;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Shadow")
-        {
-            inShadow = true;
-        }
+        collideList.Add(other.gameObject);
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Shadow")
-        {
-            inShadow = false;
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        if ((!inShadow && collision.tag == "WindowLight") || collision.tag == "CeilingLight")
-        {
-            if (box != null)
-            {
-                updownmove = false;
-                leftrightmove = false;
-                box.transform.parent = null;
-            }
-            transform.position = initialposition;
-        }
-        if (collision.gameObject.tag == "Box" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
-        {
-            if ((Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.up)) < 45) ||
-                (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.down)) < 45))
-            {
-                updownmove = true;
-
-                collision.gameObject.transform.parent = this.transform;
-                box = collision.gameObject;
-            }
-            else if ((Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.left)) < 45) ||
-               (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.right)) < 45))
-            {
-                leftrightmove = true;
-
-                collision.gameObject.transform.parent = this.transform;
-                box = collision.gameObject;
-            }
-        }
+        collideList.Remove(other.gameObject);
     }
 }
