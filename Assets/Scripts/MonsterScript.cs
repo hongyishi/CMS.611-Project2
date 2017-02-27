@@ -46,11 +46,11 @@ public class MonsterScript : MonoBehaviour
         if (lastdir == Direction.Up && !leftrightmove)
             transform.Translate(speed * Vector2.up * Time.deltaTime);
         if (lastdir == Direction.Left && !updownmove)
-            transform.Translate(speed*Vector2.left * Time.deltaTime);
+            transform.Translate(speed * Vector2.left * Time.deltaTime);
         if (lastdir == Direction.Down && !leftrightmove)
-            transform.Translate(speed*Vector2.down * Time.deltaTime);
+            transform.Translate(speed * Vector2.down * Time.deltaTime);
         if (lastdir == Direction.Right && !updownmove)
-            transform.Translate(speed*Vector2.right * Time.deltaTime);
+            transform.Translate(speed * Vector2.right * Time.deltaTime);
 
 
         if (box != null && Input.GetKeyDown(KeyCode.E) && (updownmove || leftrightmove))
@@ -67,12 +67,15 @@ public class MonsterScript : MonoBehaviour
         {
             inShadow = true;
         }
-        if (box != null && (!inShadow && other.tag == "WindowLight") || other.tag == "CeilingLight")
+        if ((!inShadow && other.tag == "WindowLight") || other.tag == "CeilingLight")
         {
+            if (box != null)
+            {
+                updownmove = false;
+                leftrightmove = false;
+                box.transform.parent = null;
+            }
             transform.position = initialposition;
-            updownmove = false;
-            leftrightmove = false;
-            box.transform.parent = null;
         }
 
 

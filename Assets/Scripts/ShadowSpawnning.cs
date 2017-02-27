@@ -25,7 +25,7 @@ public class ShadowSpawnning : MonoBehaviour {
         {
             hasShadow = true;
             Vector2 dir = collision.gameObject.GetComponent<WindowLightScript>().direction;
-            myShadow = Instantiate(shadow, (Vector2)this.transform.position + dir.normalized*(0.5f * this.transform.lossyScale.x + 0.5f * shadow.transform.lossyScale.x), Quaternion.LookRotation(dir));
+            myShadow = Instantiate(shadow, (Vector2)this.transform.position + dir.normalized*(0.5f * this.transform.lossyScale.x + 0.5f * shadow.transform.lossyScale.x), Quaternion.FromToRotation(Vector2.right,dir));
             myShadow.transform.parent = this.transform;
         }
     }
