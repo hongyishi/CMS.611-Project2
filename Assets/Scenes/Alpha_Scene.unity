@@ -1629,6 +1629,36 @@ Prefab:
       propertyPath: m_Size.y
       value: 2.41122
       objectReference: {fileID: 0}
+    - target: {fileID: 114885531160312822, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: Idle
+      value: 
+      objectReference: {fileID: 21300000, guid: d6eb461a2e09dd6489baecba43c87ce6,
+        type: 3}
+    - target: {fileID: 114885531160312822, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: pushDown
+      value: 
+      objectReference: {fileID: 21300000, guid: c65cc7ed3fc66de4bbf984c97da1f56a,
+        type: 3}
+    - target: {fileID: 114885531160312822, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: pushUp
+      value: 
+      objectReference: {fileID: 21300000, guid: b8dbded810919d542a4506390d4581b5,
+        type: 3}
+    - target: {fileID: 114885531160312822, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: pushRight
+      value: 
+      objectReference: {fileID: 21300000, guid: 305302d8feb2bbd4dad3b6469a88aa06,
+        type: 3}
+    - target: {fileID: 114885531160312822, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: pushLeft
+      value: 
+      objectReference: {fileID: 21300000, guid: ea11f32e054bdfa4ea2764e0e6fd9769,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 777138ae2e9ea49e08d86c61f077099d, type: 2}
   m_IsPrefabParent: 0
