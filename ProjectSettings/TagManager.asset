@@ -11,6 +11,7 @@ TagManager:
   - Shadow
   - CeilingLight
   - Switch
+  - Box
   layers:
   - Default
   - TransparentFX
