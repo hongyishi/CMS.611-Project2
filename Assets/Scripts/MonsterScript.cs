@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterScript : MonoBehaviour {
+public class MonsterScript : MonoBehaviour
+{
     private bool updownmove = false;
     private bool leftrightmove = false;
 
@@ -16,13 +17,15 @@ public class MonsterScript : MonoBehaviour {
     private Vector3 initialposition;
 
     // Use this for initialization
-	void Start () {
+    void Start()
+    {
         initialposition = transform.position;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (lastdir == Direction.Null && Input.GetKey(KeyCode.W))
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (lastdir == Direction.Null && Input.GetKey(KeyCode.W))
             lastdir = Direction.Up;
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.A))
             lastdir = Direction.Left;
@@ -47,20 +50,8 @@ public class MonsterScript : MonoBehaviour {
         if (lastdir == Direction.Right && !updownmove)
             transform.Translate(Vector2.right * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
-        {
-            if (lastdir == Direction.Down || lastdir == Direction.Up)
-            {
-                updownmove = true;
-                box.transform.parent = this.transform;
-            }
-            else if (lastdir == Direction.Right || lastdir == Direction.Left)
-            {
-                leftrightmove = true;
-                box.transform.parent = this.transform;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && (updownmove || leftrightmove))
+
+        if (Input.GetKeyDown(KeyCode.E) && (updownmove || leftrightmove))
         {
             updownmove = false;
             leftrightmove = false;
@@ -74,19 +65,40 @@ public class MonsterScript : MonoBehaviour {
         {
             inShadow = true;
         }
-        if ((!inShadow && other.tag == "WindowLight")|| other.tag == "CeilingLight")
+        if ((!inShadow && other.tag == "WindowLight") || other.tag == "CeilingLight")
         {
             transform.position = initialposition;
             updownmove = false;
             leftrightmove = false;
             box.transform.parent = null;
         }
+
+
     }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Shadow")
         {
             inShadow = false;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Object" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
+        {
+            if (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.up)) < 45 ||
+                Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.down)) < 45)
+            {
+                updownmove = true;
+                collision.gameObject.transform.parent = this.transform;
+            }
+            else if (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.left)) < 45 ||
+                Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.right)) < 45)
+            {
+                leftrightmove = true;
+                collision.gameObject.transform.parent = this.transform;
+            }
         }
     }
 }

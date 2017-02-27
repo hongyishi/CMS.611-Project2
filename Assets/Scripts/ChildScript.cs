@@ -42,4 +42,12 @@ public class ChildScript : MonoBehaviour {
             transform.Translate(Vector2.right * Time.deltaTime);
 
     }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && collision.gameObject == GameObject.FindGameObjectWithTag("Switch"))
+        {
+            collision.gameObject.GetComponent<SwitchScript>().flipSwitch();
+        }
+    }
 }

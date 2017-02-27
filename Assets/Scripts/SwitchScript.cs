@@ -2,37 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchScript : MonoBehaviour {
+public class SwitchScript : MonoBehaviour
+{
 
     private bool on = true;
     public GameObject[] allCeilingLights;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         allCeilingLights = GameObject.FindGameObjectsWithTag("CeilingLight");
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Return))
+    public void flipSwitch()
+    {
+        Debug.Log("Flip");
+        if (on)
         {
-            if (on)
+            foreach (GameObject ceilingLight in allCeilingLights)
             {
-                foreach (GameObject ceilingLight in allCeilingLights)
-                {
-                    ceilingLight.SetActive(false);
-                }
-                on = false;
+                ceilingLight.SetActive(false);
             }
-            else
-            {
-                foreach (GameObject ceilingLight in allCeilingLights)
-                {
-                    ceilingLight.SetActive(true);
-                }
-                on = true;
-            }
+            on = false;
         }
-	}
+        else
+        {
+            foreach (GameObject ceilingLight in allCeilingLights)
+            {
+                ceilingLight.SetActive(true);
+            }
+            on = true;
+
+        }
+    }
 }
