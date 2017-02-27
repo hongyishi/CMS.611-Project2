@@ -62,7 +62,8 @@ public class MonsterScript : MonoBehaviour
             box.transform.parent = null;
         }
         inShadow = false;
-        foreach (GameObject g in collideList) {
+        foreach (GameObject g in collideList)
+        {
             if (box == null && g.tag == "Box" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
             {
                 if ((Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.up)) < 45) ||
@@ -82,14 +83,14 @@ public class MonsterScript : MonoBehaviour
                     box = g;
                 }
             }
-            if (g.tag == "Shadow")
+            if (g != null && g.tag == "Shadow")
             {
                 inShadow = true;
             }
         }
         foreach (GameObject g in collideList)
         {
-            if ((!inShadow && g.tag == "WindowLight") || g.tag == "CeilingLight")
+            if (!inShadow && g != null && (g.tag == "WindowLight"|| g.tag == "CeilingLight"))
             {
                 if (box != null)
                 {
