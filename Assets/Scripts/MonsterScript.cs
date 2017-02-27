@@ -67,18 +67,6 @@ public class MonsterScript : MonoBehaviour
         {
             inShadow = true;
         }
-        if ((!inShadow && other.tag == "WindowLight") || other.tag == "CeilingLight")
-        {
-            if (box != null)
-            {
-                updownmove = false;
-                leftrightmove = false;
-                box.transform.parent = null;
-            }
-            transform.position = initialposition;
-        }
-
-
     }
     void OnTriggerExit2D(Collider2D other)
     {
@@ -90,20 +78,34 @@ public class MonsterScript : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Object" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
+        if ((!inShadow && collision.tag == "WindowLight") || collision.tag == "CeilingLight")
         {
-            if ((Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.up)) < 45 && lastdir == Direction.Up) ||
-                (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.down)) < 45 && lastdir == Direction.Down))
+            if (box != null)
+            {
+                updownmove = false;
+                leftrightmove = false;
+                box.transform.parent = null;
+            }
+            transform.position = initialposition;
+        }
+        if (collision.gameObject.tag == "Box" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
+        {
+            if ((Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.up)) < 45) ||
+                (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.down)) < 45))
             {
                 updownmove = true;
+
+                collision.gameObject.transform.parent = this.transform;
+                box = collision.gameObject;
             }
-            else if ((Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.left)) < 45 && lastdir == Direction.Left) ||
-               (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.right)) < 45 && lastdir == Direction.Right))
+            else if ((Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.left)) < 45) ||
+               (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.right)) < 45))
             {
                 leftrightmove = true;
+
+                collision.gameObject.transform.parent = this.transform;
+                box = collision.gameObject;
             }
-            collision.gameObject.transform.parent = this.transform;
-            box = collision.gameObject;
         }
     }
 }
