@@ -8,6 +8,8 @@ public class ChildScript : MonoBehaviour {
     private Direction lastdir = Direction.Null;
     private GameObject mySwitch = null;
 
+    public int speed = 1;
+
     // Use this for initialization
     void Start()
     {
@@ -34,13 +36,13 @@ public class ChildScript : MonoBehaviour {
         if (lastdir == Direction.Right && Input.GetKeyUp(KeyCode.RightArrow))
             lastdir = Direction.Null;
         if (lastdir == Direction.Up)
-            transform.Translate(Vector2.up * Time.deltaTime);
+            transform.Translate(speed*Vector2.up * Time.deltaTime);
         if (lastdir == Direction.Left)
-            transform.Translate(Vector2.left * Time.deltaTime);
+            transform.Translate(speed*Vector2.left * Time.deltaTime);
         if (lastdir == Direction.Down)
-            transform.Translate(Vector2.down * Time.deltaTime);
+            transform.Translate(speed*Vector2.down * Time.deltaTime);
         if (lastdir == Direction.Right)
-            transform.Translate(Vector2.right * Time.deltaTime);
+            transform.Translate(speed*Vector2.right * Time.deltaTime);
         if (mySwitch != null && Input.GetKeyDown(KeyCode.Return))
         {
             mySwitch.GetComponent<SwitchScript>().flipSwitch();
