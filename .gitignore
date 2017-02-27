@@ -3,6 +3,5 @@ Library/*
 obj/*
 Shadow_Data/*
 Temp/*
-*.exe
 *.sln
 *.csproj
