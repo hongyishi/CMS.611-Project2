@@ -17,6 +17,12 @@ public class TimerScript : MonoBehaviour {
         {
             Application.Quit();
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Application.LoadLevel(0);
+        }
+
         timer += Time.deltaTime;
 
         if (Mathf.FloorToInt(timer / 60F) >= 1)

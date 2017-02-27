@@ -11,7 +11,7 @@ public class DoorScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        winText.text = "";
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +26,7 @@ public class DoorScript : MonoBehaviour {
         }
         if (!Kid.activeSelf && !Monster.activeSelf)
         {
-
+            winText.text = "You win!";
         }
     }
 }
