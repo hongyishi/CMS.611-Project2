@@ -17,3 +17,5 @@ Bugs:
 -No title screen
 -No Controls/help menu
 -No credits
+-Need to add box/shadow assets
+-Monster can walk over small slivers of light between box shadows

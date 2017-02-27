@@ -19,7 +19,7 @@ Platform assembly: C:\Users\mitadm\Desktop\CMS.611-Project2\Builds\Build1_Data\M
 Loading C:\Users\mitadm\Desktop\CMS.611-Project2\Builds\Build1_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: C:\Users\mitadm\Desktop\CMS.611-Project2\Builds\Build1_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\mitadm\Desktop\CMS.611-Project2\Builds\Build1_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.021 seconds
+- Completed reload, in  0.024 seconds
 Platform assembly: C:\Users\mitadm\Desktop\CMS.611-Project2\Builds\Build1_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\mitadm\Desktop\CMS.611-Project2\Builds\Build1_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
@@ -27,18 +27,12 @@ desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 3.872463 ms
+UnloadTime: 3.690090 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 13.598623 ms
+UnloadTime: 16.314875 ms
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 396.
-Total: 0.507249 ms (FindLiveObjects: 0.056448 ms CreateObjectMapping: 0.035527 ms MarkObjects: 0.398299 ms  DeleteObjects: 0.008289 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.622910 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 396.
-Total: 1.161344 ms (FindLiveObjects: 0.080528 ms CreateObjectMapping: 0.046974 ms MarkObjects: 1.010551 ms  DeleteObjects: 0.020132 ms)
+Total: 0.648963 ms (FindLiveObjects: 0.105792 ms CreateObjectMapping: 0.045001 ms MarkObjects: 0.475669 ms  DeleteObjects: 0.010263 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2228 -> priority: 1 
+  Thread -> id: 1d2c -> priority: 1 
