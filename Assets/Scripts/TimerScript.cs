@@ -15,7 +15,7 @@ public class TimerScript : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
 
-        if (Mathf.FloorToInt(timer / 60F) >= 5)
+        if (Mathf.FloorToInt(timer / 60F) >= 1)
             Application.Quit();
     }
     void OnGUI()
