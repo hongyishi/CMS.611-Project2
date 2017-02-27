@@ -1,0 +1,16 @@
+Features:
+-Both players can move around in cardinal directions
+-Monster pushes blocks in cardinal directions
+-Kid can activate switches/turn off lights
+-5 min. game over timer
+-Both characters can exit level - win message appears
+-Boxes create shadows in correct direction
+-Switches change sprite when activated
+
+Bugs:
+-If monster exits while carrying box, box dissapears
+-Monster sometimes grabs worng box
+-Monster partially phases through wall when holding a box
+-Monster Phases through boxes when pushing boxes
+-Monster can still move box, even if monster sprite isn't moving
+-Monster can push box with another box (2 boxes at once)
