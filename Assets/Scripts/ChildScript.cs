@@ -6,6 +6,7 @@ public class ChildScript : MonoBehaviour {
     enum Direction { Left, Right, Up, Down, Null };
 
     private Direction lastdir = Direction.Null;
+    private GameObject mySwitch = null;
 
     // Use this for initialization
     void Start()
@@ -40,14 +41,21 @@ public class ChildScript : MonoBehaviour {
             transform.Translate(Vector2.down * Time.deltaTime);
         if (lastdir == Direction.Right)
             transform.Translate(Vector2.right * Time.deltaTime);
-
+        if (mySwitch != null && Input.GetKeyDown(KeyCode.Return))
+        {
+            mySwitch.GetComponent<SwitchScript>().flipSwitch();
+        }
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.Return) && collision.gameObject == GameObject.FindGameObjectWithTag("Switch"))
-        {
-            collision.gameObject.GetComponent<SwitchScript>().flipSwitch();
-        }
+        if (other.gameObject.tag == "Switch")
+            mySwitch = other.gameObject;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Switch")
+            mySwitch = null;
     }
 }
