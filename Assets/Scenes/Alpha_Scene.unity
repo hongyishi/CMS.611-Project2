@@ -467,6 +467,25 @@ BoxCollider2D:
   m_Offset: {x: -33, y: 0}
   serializedVersion: 2
   m_Size: {x: 8, y: 60}
+--- !u!1 &467704979 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1486427626428068, guid: 2bac29d508bc2b942ac8509aacd66098,
+    type: 2}
+  m_PrefabInternal: {fileID: 897967202}
+--- !u!61 &467704980
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467704979}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 2.5}
 --- !u!1001 &710858838
 Prefab:
   m_ObjectHideFlags: 0
@@ -701,6 +720,11 @@ Prefab:
     - target: {fileID: 4961490571201162, guid: 2bac29d508bc2b942ac8509aacd66098, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 61921924937762964, guid: 2bac29d508bc2b942ac8509aacd66098,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bac29d508bc2b942ac8509aacd66098, type: 2}
