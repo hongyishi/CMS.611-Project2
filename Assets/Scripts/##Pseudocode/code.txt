@@ -1,0 +1,52 @@
+Monster {
+
+    enum Direction {Up,Down,Left,Right}
+    private static bool updownmove
+    private static bool leftrightmove
+    private Direction direction    
+    onTriggerEnter() {
+        
+    }
+    
+    onUpdate() {
+        if collide(light.bounding_box):
+            position.reset_to_original()
+            updownmove = false
+            leftrightmove = false
+            object.stopmove()
+            return
+        if collide(object.bounding_box) && updownmove==false && leftrightmove==false && input==interact:
+            vector = object.position - self.position
+            if abs(vector.angle(transform.up,vector)) <= 45:
+                updownmove = true
+                sprite.set(up_move)
+                object.moveupdown()
+            elif abs(vector.angle(transform.left,vector)) <= 45:
+                leftrightmove = true
+                sprite.set(left_move)
+                object.moveleftright()
+            elif abs(vector.angle(transform.right,vector)) <= 45:
+                leftrightmove = true
+                sprite.set(right_move)
+                object.moveleftright()
+            elif abs(vector.angle(transform.down,vector)) <= 45:
+                updownmove = true
+                sprite.set(down_move)
+                object.moveupdown()
+        
+        elif updownmove == true or leftrightmove == true && input == interact:
+            updownmove = false
+            leftrightmove = false
+            object.stopmove()
+        
+        if input = left && !updownmove:
+            self.transform(left)
+        if input = right && !updownmove:
+            self.transform(right)
+        if input = up && !leftrightmove:
+            self.transform(up)
+        if input = down && !leftrightmove:
+            self.transform(down)
+    }
+}
+
