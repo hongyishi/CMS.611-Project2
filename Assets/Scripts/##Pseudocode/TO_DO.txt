@@ -1,0 +1,2 @@
+Ensure monster can only affect block at correct distance and position
+Ensure child can only affect switch at correct distance

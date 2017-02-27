@@ -1,7 +1,6 @@
-*
-!Assets/*
-!Assets*
-!Assets/Scripts/*
-!Assets/Scripts*
-!ProjectSettings/*
-!ProjectSettings*
+.vs/*
+Library/*
+obj/*
+Shadow_Data/*
+Temp/*
+Shadow.*
