@@ -12,9 +12,11 @@ public class MonsterScript : MonoBehaviour
     enum Direction { Left, Right, Up, Down, Null };
 
     private Direction lastdir = Direction.Null;
-    
+
     private Vector3 initialposition;
     private GameObject box = null;
+
+    public int speed = 1;
 
     // Use this for initialization
     void Start()
@@ -42,13 +44,13 @@ public class MonsterScript : MonoBehaviour
         if (lastdir == Direction.Right && Input.GetKeyUp(KeyCode.D))
             lastdir = Direction.Null;
         if (lastdir == Direction.Up && !leftrightmove)
-            transform.Translate(Vector2.up * Time.deltaTime);
+            transform.Translate(speed * Vector2.up * Time.deltaTime);
         if (lastdir == Direction.Left && !updownmove)
-            transform.Translate(Vector2.left * Time.deltaTime);
+            transform.Translate(speed*Vector2.left * Time.deltaTime);
         if (lastdir == Direction.Down && !leftrightmove)
-            transform.Translate(Vector2.down * Time.deltaTime);
+            transform.Translate(speed*Vector2.down * Time.deltaTime);
         if (lastdir == Direction.Right && !updownmove)
-            transform.Translate(Vector2.right * Time.deltaTime);
+            transform.Translate(speed*Vector2.right * Time.deltaTime);
 
 
         if (box != null && Input.GetKeyDown(KeyCode.E) && (updownmove || leftrightmove))
@@ -87,13 +89,13 @@ public class MonsterScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Object" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
         {
-            if (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.up)) < 45 ||
-                Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.down)) < 45)
+            if ((Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.up)) < 45 && lastdir == Direction.Up) ||
+                (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.down)) < 45 && lastdir == Direction.Down))
             {
                 updownmove = true;
             }
-            else if (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.left)) < 45 ||
-                Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.right)) < 45)
+            else if ((Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.left)) < 45 && lastdir == Direction.Left) ||
+               (Mathf.Abs(Vector2.Angle((collision.transform.position - this.transform.position), Vector2.right)) < 45 && lastdir == Direction.Right))
             {
                 leftrightmove = true;
             }
