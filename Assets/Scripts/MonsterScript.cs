@@ -70,7 +70,7 @@ public class MonsterScript : MonoBehaviour
         inShadow = false;
         foreach (GameObject g in collideList)
         {
-            if (box == null && g!= null && g.tag == "Box" && Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
+            if (box == null && g!= null && (g.tag == "Box"||g.tag == "SmallBox")&& Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
             {
                 if (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.up)) < 45)
                 {
