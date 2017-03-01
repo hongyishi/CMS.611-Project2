@@ -19,6 +19,7 @@ public class ChildScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.UpArrow))
             lastdir = Direction.Up;
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.LeftArrow))
@@ -36,17 +37,33 @@ public class ChildScript : MonoBehaviour {
         if (lastdir == Direction.Right && Input.GetKeyUp(KeyCode.RightArrow))
             lastdir = Direction.Null;
         if (lastdir == Direction.Up)
-            transform.Translate(speed*Vector2.up * Time.deltaTime);
+        {
+            if (GetComponent<Rigidbody2D>() != null)
+                GetComponent<Rigidbody2D>().isKinematic = false;
+            transform.Translate(speed * Vector2.up * Time.deltaTime);
+        }
         if (lastdir == Direction.Left)
-            transform.Translate(speed*Vector2.left * Time.deltaTime);
+        {
+            transform.Translate(speed * Vector2.left * Time.deltaTime);
+            if (GetComponent<Rigidbody2D>() != null)
+                GetComponent<Rigidbody2D>().isKinematic = false;
+        }
         if (lastdir == Direction.Down)
-            transform.Translate(speed*Vector2.down * Time.deltaTime);
-        if (lastdir == Direction.Right)
-            transform.Translate(speed*Vector2.right * Time.deltaTime);
+        {
+            transform.Translate(speed * Vector2.down * Time.deltaTime);
+            if (GetComponent<Rigidbody2D>() != null)
+                GetComponent<Rigidbody2D>().isKinematic = false;
+        }
+        if (lastdir == Direction.Right) {
+            if (GetComponent<Rigidbody2D>() != null)
+                GetComponent<Rigidbody2D>().isKinematic = false;
+            transform.Translate(speed * Vector2.right * Time.deltaTime); }
         if (mySwitch != null && Input.GetKeyDown(KeyCode.Return))
         {
             mySwitch.GetComponent<SwitchScript>().flipSwitch();
         }
+        if (GetComponent<Rigidbody2D>() != null)
+            GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -60,4 +77,5 @@ public class ChildScript : MonoBehaviour {
         if (collision.gameObject.tag == "Switch")
             mySwitch = null;
     }
+    
 }

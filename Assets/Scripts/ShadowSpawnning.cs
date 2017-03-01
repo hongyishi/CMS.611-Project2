@@ -38,4 +38,16 @@ public class ShadowSpawnning : MonoBehaviour {
             hasShadow = false;
         }
     }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Rigidbody2D>() != null)
+            collision.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Rigidbody2D>() != null)
+            collision.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+    }
 }

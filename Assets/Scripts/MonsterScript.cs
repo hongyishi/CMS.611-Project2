@@ -58,8 +58,6 @@ public class MonsterScript : MonoBehaviour
             transform.Translate(speed * Vector2.down * Time.deltaTime);
         if (lastdir == Direction.Right && !updownmove)
             transform.Translate(speed * Vector2.right * Time.deltaTime);
-
-
         if (box != null && Input.GetKeyDown(KeyCode.E) && (updownmove || leftrightmove))
         {
             GetComponent<SpriteRenderer>().sprite = Idle;
@@ -132,4 +130,5 @@ public class MonsterScript : MonoBehaviour
     {
         collideList.Remove(other.gameObject);
     }
+
 }
