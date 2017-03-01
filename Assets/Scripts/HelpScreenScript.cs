@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class HelpScript : MonoBehaviour
-{
-    public Sprite EmptySprite;
+public class HelpScreenScript : MonoBehaviour {
 
     // Use this for initialization
     void Start()
@@ -15,9 +14,9 @@ public class HelpScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("H"))
+        if (Input.anyKey)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = EmptySprite;
+            SceneManager.LoadScene("Alpha_Scene");
         }
 
     }

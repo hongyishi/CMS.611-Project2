@@ -20,7 +20,7 @@ public class TimerScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Application.LoadLevel(1);
+            Application.LoadLevel(2);
         }
 
         timer -= Time.deltaTime;

@@ -14,7 +14,7 @@ public class TitleScript : MonoBehaviour {
 	void Update () {
         if (Input.anyKey)
         {
-            SceneManager.LoadScene("Alpha_Scene");
+            SceneManager.LoadScene("HelpScene");
         }
 
     }
