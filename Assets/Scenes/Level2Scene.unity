@@ -833,7 +833,9 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: ea11f32e054bdfa4ea2764e0e6fd9769,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114885531160312822, guid: 777138ae2e9ea49e08d86c61f077099d, type: 2}
+    - {fileID: 111315051894948240, guid: 777138ae2e9ea49e08d86c61f077099d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 777138ae2e9ea49e08d86c61f077099d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &906412563 stripped
@@ -841,6 +843,43 @@ GameObject:
   m_PrefabParentObject: {fileID: 1259441322725428, guid: 777138ae2e9ea49e08d86c61f077099d,
     type: 2}
   m_PrefabInternal: {fileID: 906412562}
+--- !u!114 &906412564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906412563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f312369e233e0c14f8d12ca22aad97b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PushUpIdle: {fileID: 21300002, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushUp1: {fileID: 21300004, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushUp2: {fileID: 21300006, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushDownIdle: {fileID: 21300038, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushDown1: {fileID: 21300040, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushDown2: {fileID: 21300042, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushLeftIdle: {fileID: 21300014, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushLeft1: {fileID: 21300016, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushLeft2: {fileID: 21300018, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushRightIdle: {fileID: 21300026, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushRight1: {fileID: 21300028, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  PushRight2: {fileID: 21300030, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  UpIdle: {fileID: 21300000, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Up1: {fileID: 21300008, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Up2: {fileID: 21300010, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  DownIdle: {fileID: 21300036, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Down1: {fileID: 21300044, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Down2: {fileID: 21300046, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  LeftIdle: {fileID: 21300012, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Left1: {fileID: 21300020, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Left2: {fileID: 21300022, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  RightIdle: {fileID: 21300024, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Right1: {fileID: 21300032, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Right2: {fileID: 21300034, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  Death: {fileID: 21300048, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  speed: 1
 --- !u!1001 &944036622
 Prefab:
   m_ObjectHideFlags: 0
