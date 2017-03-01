@@ -6,11 +6,41 @@ public class MonsterScript : MonoBehaviour
 {
     private bool updownmove = false;
     private bool leftrightmove = false;
-    public Animation Idle;
-    public Animation pushDown;
-    public Animation pushUp;
-    public Animation pushRight;
-    public Animation pushLeft;
+
+    public Sprite PushUpIdle;
+    public Sprite PushUp1;
+    public Sprite PushUp2;
+
+    public Sprite PushDownIdle;
+    public Sprite PushDown1;
+    public Sprite PushDown2;
+
+    public Sprite PushLeftIdle;
+    public Sprite PushLeft1;
+    public Sprite PushLeft2;
+
+    public Sprite PushRightIdle;
+    public Sprite PushRight1;
+    public Sprite PushRight2;
+
+    public Sprite UpIdle;
+    public Sprite Up1;
+    public Sprite Up2;
+
+    public Sprite DownIdle;
+    public Sprite Down1;
+    public Sprite Down2;
+
+    public Sprite LeftIdle;
+    public Sprite Left1;
+    public Sprite Left2;
+
+    public Sprite RightIdle;
+    public Sprite Right1;
+    public Sprite Right2;
+
+    public Sprite Death;
+
 
     private bool inShadow = false;
 
