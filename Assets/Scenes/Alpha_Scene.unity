@@ -1627,6 +1627,26 @@ Prefab:
       propertyPath: pushLeft
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 111315051894948240, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: f6f45e2162f40a843837bdefb26306a1, type: 2}
+    - target: {fileID: 212390545887950956, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 111315051894948240, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 111315051894948240, guid: 777138ae2e9ea49e08d86c61f077099d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 777138ae2e9ea49e08d86c61f077099d, type: 2}
   m_IsPrefabParent: 0
