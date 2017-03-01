@@ -166,6 +166,7 @@ public class MonsterScript : MonoBehaviour
             if (!inShadow && g != null && (g.tag == "WindowLight"|| g.tag == "CeilingLight"))
             {
                 respawnMonster();
+                return;
             }
         }
     }
@@ -174,9 +175,8 @@ public class MonsterScript : MonoBehaviour
     {
         if (shouldChangeSprite)
         {
-            if (lastdir == Direction.Null && Input.GetKey(KeyCode.W))
+            if (lastdir == Direction.Up)
             {
-                lastdir = Direction.Up;
                 if (upmove)
                 {
                     GetComponent<SpriteRenderer>().sprite = PushUpIdle;
@@ -190,9 +190,8 @@ public class MonsterScript : MonoBehaviour
                     GetComponent<SpriteRenderer>().sprite = UpIdle;
                 }
             }
-            if (lastdir == Direction.Null && Input.GetKey(KeyCode.A))
+            if (lastdir == Direction.Left)
             {
-                lastdir = Direction.Left;
                 if (leftmove)
                 {
                     GetComponent<SpriteRenderer>().sprite = PushLeftIdle;
@@ -206,9 +205,8 @@ public class MonsterScript : MonoBehaviour
                     GetComponent<SpriteRenderer>().sprite = LeftIdle;
                 }
             }
-            if (lastdir == Direction.Null && Input.GetKey(KeyCode.S))
+            if (lastdir == Direction.Down)
             {
-                lastdir = Direction.Down;
                 if (upmove)
                 {
                     GetComponent<SpriteRenderer>().sprite = PushUpIdle;
@@ -222,9 +220,8 @@ public class MonsterScript : MonoBehaviour
                     GetComponent<SpriteRenderer>().sprite = DownIdle;
                 }
             }
-            if (lastdir == Direction.Null && Input.GetKey(KeyCode.D))
+            if (lastdir == Direction.Right)
             {
-                lastdir = Direction.Right;
                 if (leftmove)
                 {
                     GetComponent<SpriteRenderer>().sprite = PushLeftIdle;
