@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4183364191329912}
   - component: {fileID: 50493279767721130}
   - component: {fileID: 61107747239281710}
+  - component: {fileID: 114646217958746496}
   m_Layer: 10
   m_Name: Small Cube
   m_TagString: SmallBox
@@ -141,6 +142,17 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.0086250305}
   serializedVersion: 2
   m_Size: {x: 2.082477, y: 2.4102168}
+--- !u!114 &114646217958746496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213152295508916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290635c14946e814594a8b845e220e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212725656646498448
 SpriteRenderer:
   m_ObjectHideFlags: 1

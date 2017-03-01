@@ -14,7 +14,7 @@ public class Level2DoorScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        winText.text = "";
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
