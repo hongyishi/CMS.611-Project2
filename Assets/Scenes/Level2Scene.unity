@@ -716,10 +716,6 @@ Prefab:
       propertyPath: m_Name
       value: Small Cube (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4159361733551300, guid: ac64ac85d15749642b4ef27a120114e3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac64ac85d15749642b4ef27a120114e3, type: 2}
   m_IsPrefabParent: 0
@@ -878,7 +874,7 @@ MonoBehaviour:
   RightIdle: {fileID: 21300024, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
   Right1: {fileID: 21300032, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
   Right2: {fileID: 21300034, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
-  Death: {fileID: 21300048, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  DeadMonster: {fileID: 0}
   speed: 1
 --- !u!1001 &944036622
 Prefab:
