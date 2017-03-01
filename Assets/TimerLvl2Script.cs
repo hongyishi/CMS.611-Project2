@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimerScript : MonoBehaviour {
+public class TimerLvl2Script : MonoBehaviour
+{
 
     public static float timer;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         timer = 150;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -20,7 +23,7 @@ public class TimerScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Application.LoadLevel(1);
+            Application.LoadLevel(2);
         }
 
         timer -= Time.deltaTime;
