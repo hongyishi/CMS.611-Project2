@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 50493279767721130}
   - component: {fileID: 61107747239281710}
   m_Layer: 10
-  m_Name: Cube
-  m_TagString: Box
+  m_Name: Small Cube
+  m_TagString: SmallBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 212725656646498448}
   - component: {fileID: 50624512019823524}
   - component: {fileID: 61609346669756704}
-  - component: {fileID: 114618215514863628}
   m_Layer: 10
   m_Name: Box
   m_TagString: Untagged
@@ -67,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1213152295508916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.55, y: 1.68, z: -2}
+  m_LocalPosition: {x: 12.062876, y: -3.7390194, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4159361733551300}
@@ -125,9 +124,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.017249346, y: 0.0086250305}
+  m_Offset: {x: -0.004734516, y: 0.05174923}
   serializedVersion: 2
-  m_Size: {x: 3.465973, y: 3.4142241}
+  m_Size: {x: 3.1115131, y: 3.3279767}
 --- !u!61 &61609346669756704
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -139,21 +138,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.008624792, y: 0}
+  m_Offset: {x: 0, y: -0.0086250305}
   serializedVersion: 2
-  m_Size: {x: 2.065227, y: 2.4274669}
---- !u!114 &114618215514863628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453429987658882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdf459b3128c73345a876703d75a4a42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shadow: {fileID: 1887004385938388, guid: 2d9bc606c1a6ae645a8be49bdde6ca8c, type: 2}
+  m_Size: {x: 2.082477, y: 2.4102168}
 --- !u!212 &212725656646498448
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -185,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2019394799
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 215beae9a2a42c34184d6331e45df791, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7918c5cf33497084286154d496cce142, type: 3}
+  m_Color: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 1}
   m_FlipX: 0
   m_FlipY: 0

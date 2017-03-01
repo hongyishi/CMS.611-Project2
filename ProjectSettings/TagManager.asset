@@ -12,6 +12,7 @@ TagManager:
   - CeilingLight
   - Switch
   - Box
+  - SmallBox
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - 
   - Monster
   - Child
-  - 
-  - 
+  - Box
+  - Rug
   - 
   - 
   - 
