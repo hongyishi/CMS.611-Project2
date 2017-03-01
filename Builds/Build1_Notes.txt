@@ -9,13 +9,17 @@ Features:
 
 Bugs:
 -If monster exits while carrying box, box dissapears
--Monster sometimes grabs worng box
+-Monster sometimes grabs wrong box
 -Monster partially phases through wall when holding a box
 -Monster Phases through boxes when pushing boxes
 -Monster can still move box, even if monster sprite isn't moving
 -Monster can push box with another box (2 boxes at once)
--No title screen
--No Controls/help menu
--No credits
--Need to add box/shadow assets
 -Monster can walk over small slivers of light between box shadows
+-Kid can push monster
+
+Planned Features:
+-Title Screen
+-Help menu
+-Credits
+-Box/shadow assets
+-Level ends when monster reaches door
