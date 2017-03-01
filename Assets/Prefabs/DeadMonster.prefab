@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61221303166728052}
   - component: {fileID: 114521584806208952}
   m_Layer: 8
-  m_Name: Monster
+  m_Name: DeadMonster
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   RightIdle: {fileID: 21300024, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
   Right1: {fileID: 21300032, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
   Right2: {fileID: 21300034, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
-  Death: {fileID: 21300048, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
+  DeadMonster: {fileID: 0}
   speed: 1
 --- !u!212 &212390545887950956
 SpriteRenderer:
