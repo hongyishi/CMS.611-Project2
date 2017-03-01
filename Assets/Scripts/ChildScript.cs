@@ -8,7 +8,7 @@ public class ChildScript : MonoBehaviour {
     private Direction lastdir = Direction.Null;
     private GameObject mySwitch = null;
 
-    public int speed = 1;
+    public float speed = 1;
 
     // Use this for initialization
     void Start()

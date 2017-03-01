@@ -23,7 +23,7 @@ public class MonsterScript : MonoBehaviour
 
     private List<GameObject> collideList = new List<GameObject>();
 
-    public int speed = 1;
+    public float speed = 1;
 
     // Use this for initialization
     void Start()
