@@ -11,7 +11,7 @@ public class ShadowSpawnning : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
+        GetComponent<Rigidbody2D>().isKinematic = true;
 	}
 	
 	// Update is called once per frame
@@ -25,7 +25,7 @@ public class ShadowSpawnning : MonoBehaviour {
             GetComponent<Rigidbody2D>().isKinematic = true;
         }
         transform.localPosition = Vector2.zero;
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
