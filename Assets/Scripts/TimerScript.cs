@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour {
 
@@ -27,7 +28,7 @@ public class TimerScript : MonoBehaviour {
 
         if (timer <= 0)
         {
-            Application.Quit();
+            SceneManager.LoadScene("GameOverScene");
         }
     }
     void OnGUI()
