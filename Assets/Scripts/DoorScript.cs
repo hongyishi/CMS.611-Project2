@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DoorScript : MonoBehaviour {
 
@@ -18,15 +19,7 @@ public class DoorScript : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Monster"))
         {
-            other.gameObject.SetActive(false);
-        }
-        else if (other.gameObject.CompareTag("Kid"))
-        {
-            other.gameObject.SetActive(false);
-        }
-        if (!Kid.activeSelf && !Monster.activeSelf)
-        {
-            winText.text = "You win!";
+            SceneManager.LoadScene("Level2Scene");
         }
     }
 }

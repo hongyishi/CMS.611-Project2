@@ -18,12 +18,11 @@ Bugs:
 -Kid can push monster
 
 Planned Features:
--Title Screen
 -Help menu
 -Credits
--Box/shadow assets
--Level ends when monster reaches door
+-shadow assets
 -Make Timer more obvious and count down
 -Second level
 -Kid pushed smaller boxes
 -Add rug
+-Change Movement Scenes
