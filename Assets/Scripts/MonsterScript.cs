@@ -61,6 +61,7 @@ public class MonsterScript : MonoBehaviour
         if (box != null && Input.GetKeyDown(KeyCode.E) && (updownmove || leftrightmove))
         {
             GetComponent<SpriteRenderer>().sprite = Idle;
+            box.GetComponentInChildren<Rigidbody2D>().isKinematic = false;
             updownmove = false;
             leftrightmove = false;
             box.transform.parent = null;
@@ -75,6 +76,7 @@ public class MonsterScript : MonoBehaviour
                 {
                     updownmove = true;
                     GetComponent<SpriteRenderer>().sprite = pushUp;
+                    g.GetComponentInChildren<Rigidbody2D>().isKinematic = true;
                     g.transform.parent = this.transform;
                     box = g;
                 }
@@ -82,6 +84,7 @@ public class MonsterScript : MonoBehaviour
                 {
                     updownmove = true;
                     GetComponent<SpriteRenderer>().sprite = pushDown;
+                    g.GetComponentInChildren<Rigidbody2D>().isKinematic = true;
                     g.transform.parent = this.transform;
                     box = g;
                 }
@@ -89,6 +92,7 @@ public class MonsterScript : MonoBehaviour
                 {
                     leftrightmove = true;
                     GetComponent<SpriteRenderer>().sprite = pushLeft;
+                    g.GetComponentInChildren<Rigidbody2D>().isKinematic = true;
                     g.transform.parent = this.transform;
                     box = g;
                 }
@@ -96,6 +100,7 @@ public class MonsterScript : MonoBehaviour
                 {
                     leftrightmove = true;
                     GetComponent<SpriteRenderer>().sprite = pushRight;
+                    g.GetComponentInChildren<Rigidbody2D>().isKinematic = true;
                     g.transform.parent = this.transform;
                     box = g;
                 }
@@ -112,6 +117,7 @@ public class MonsterScript : MonoBehaviour
                 if (box != null)
                 {
                     GetComponent<SpriteRenderer>().sprite = Idle;
+                    box.GetComponentInChildren<Rigidbody2D>().isKinematic = false;
                     updownmove = false;
                     leftrightmove = false;
                     box.transform.parent = null;

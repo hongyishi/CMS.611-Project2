@@ -874,19 +874,34 @@ Prefab:
     - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
         type: 2}
       propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
-        type: 2}
-      propertyPath: m_LinearDrag
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
         type: 2}
-      propertyPath: m_BodyType
+      propertyPath: m_LinearDrag
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50493279767721130, guid: 7f65702d4f3039c4397cf1131ff54c0a,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 50493279767721130, guid: 7f65702d4f3039c4397cf1131ff54c0a,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50493279767721130, guid: 7f65702d4f3039c4397cf1131ff54c0a,
         type: 2}
       propertyPath: m_Constraints
       value: 4
@@ -932,11 +947,6 @@ Prefab:
     - target: {fileID: 4102251889216750, guid: 0ad9a8e54f4920b43a958f8ad8bb269d, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 50381439926892908, guid: 0ad9a8e54f4920b43a958f8ad8bb269d,
-        type: 2}
-      propertyPath: m_LinearDrag
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ad9a8e54f4920b43a958f8ad8bb269d, type: 2}
@@ -1498,16 +1508,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 50850417176235948, guid: 777138ae2e9ea49e08d86c61f077099d,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50850417176235948, guid: 777138ae2e9ea49e08d86c61f077099d,
-        type: 2}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 777138ae2e9ea49e08d86c61f077099d, type: 2}
   m_IsPrefabParent: 0
@@ -1621,17 +1621,32 @@ Prefab:
     - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
         type: 2}
       propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
-        type: 2}
-      propertyPath: m_LinearDrag
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
         type: 2}
-      propertyPath: m_BodyType
+      propertyPath: m_LinearDrag
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50624512019823524, guid: 7f65702d4f3039c4397cf1131ff54c0a,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50493279767721130, guid: 7f65702d4f3039c4397cf1131ff54c0a,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 50493279767721130, guid: 7f65702d4f3039c4397cf1131ff54c0a,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50493279767721130, guid: 7f65702d4f3039c4397cf1131ff54c0a,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f65702d4f3039c4397cf1131ff54c0a, type: 2}

@@ -38,32 +38,24 @@ public class ChildScript : MonoBehaviour {
             lastdir = Direction.Null;
         if (lastdir == Direction.Up)
         {
-            if (GetComponent<Rigidbody2D>() != null)
-                GetComponent<Rigidbody2D>().isKinematic = false;
             transform.Translate(speed * Vector2.up * Time.deltaTime);
         }
         if (lastdir == Direction.Left)
         {
             transform.Translate(speed * Vector2.left * Time.deltaTime);
-            if (GetComponent<Rigidbody2D>() != null)
-                GetComponent<Rigidbody2D>().isKinematic = false;
         }
         if (lastdir == Direction.Down)
         {
             transform.Translate(speed * Vector2.down * Time.deltaTime);
-            if (GetComponent<Rigidbody2D>() != null)
-                GetComponent<Rigidbody2D>().isKinematic = false;
         }
-        if (lastdir == Direction.Right) {
-            if (GetComponent<Rigidbody2D>() != null)
-                GetComponent<Rigidbody2D>().isKinematic = false;
-            transform.Translate(speed * Vector2.right * Time.deltaTime); }
+        if (lastdir == Direction.Right)
+        {
+            transform.Translate(speed * Vector2.right * Time.deltaTime);
+        }
         if (mySwitch != null && Input.GetKeyDown(KeyCode.Return))
         {
             mySwitch.GetComponent<SwitchScript>().flipSwitch();
         }
-        if (GetComponent<Rigidbody2D>() != null)
-            GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
