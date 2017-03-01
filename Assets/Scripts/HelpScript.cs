@@ -11,7 +11,10 @@ public class HelpScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        // Input.GetKey(KeyCode.W)
+        if (Input.GetButtonDown("H"))
+        {
+            gameObject.SetActive(false);
+        }
 
     }
 }
