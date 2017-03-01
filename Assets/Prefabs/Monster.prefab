@@ -114,7 +114,7 @@ MonoBehaviour:
   Right2: {fileID: 21300034, guid: 6a2af49c809043044ac6738abcbaa75b, type: 3}
   DeadMonster: {fileID: 1259441322725428, guid: 4912ee167aa052848aa4702c40b92076,
     type: 2}
-  speed: 1
+  speed: 4
 --- !u!212 &212390545887950956
 SpriteRenderer:
   m_ObjectHideFlags: 1
