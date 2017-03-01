@@ -23,3 +23,7 @@ Planned Features:
 -Credits
 -Box/shadow assets
 -Level ends when monster reaches door
+-Make Timer more obvious and count down
+-Second level
+-Kid pushed smaller boxes
+-Add rug
