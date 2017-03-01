@@ -720,14 +720,6 @@ Prefab:
       propertyPath: m_Name
       value: Small Cube (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4159361733551300, guid: ac64ac85d15749642b4ef27a120114e3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4159361733551300, guid: ac64ac85d15749642b4ef27a120114e3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac64ac85d15749642b4ef27a120114e3, type: 2}
   m_IsPrefabParent: 0
