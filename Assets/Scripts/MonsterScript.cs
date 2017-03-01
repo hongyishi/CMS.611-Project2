@@ -6,11 +6,11 @@ public class MonsterScript : MonoBehaviour
 {
     private bool updownmove = false;
     private bool leftrightmove = false;
-    public Sprite Idle;
-    public Sprite pushDown;
-    public Sprite pushUp;
-    public Sprite pushRight;
-    public Sprite pushLeft;
+    public Animation Idle;
+    public Animation pushDown;
+    public Animation pushUp;
+    public Animation pushRight;
+    public Animation pushLeft;
 
     private bool inShadow = false;
 
@@ -60,7 +60,8 @@ public class MonsterScript : MonoBehaviour
             transform.Translate(speed * Vector2.right * Time.deltaTime);
         if (box != null && Input.GetKeyDown(KeyCode.Space) && (updownmove || leftrightmove))
         {
-            GetComponent<SpriteRenderer>().sprite = Idle;
+            //GetComponent<SpriteRenderer>().sprite = Idle;
+            //GetComponent<Animation>().animation = Idle;
             updownmove = false;
             leftrightmove = false;
             box.transform.parent = null;
@@ -75,28 +76,32 @@ public class MonsterScript : MonoBehaviour
                 if (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.up)) < 45)
                 {
                     updownmove = true;
-                    GetComponent<SpriteRenderer>().sprite = pushUp;
+                    //GetComponent<SpriteRenderer>().sprite = pushUp;
+                    //GetComponent<Animation>().animation = Idle;
                     g.transform.parent = this.transform;
                     box = g;
                 }
                 else if(Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.down)) < 45)
                 {
                     updownmove = true;
-                    GetComponent<SpriteRenderer>().sprite = pushDown;
+                    //GetComponent<SpriteRenderer>().sprite = pushDown;
+                    //GetComponent<Animation>().animation = Idle;
                     g.transform.parent = this.transform;
                     box = g;
                 }
                 else if (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.left)) < 45)
                 {
                     leftrightmove = true;
-                    GetComponent<SpriteRenderer>().sprite = pushLeft;
+                    //GetComponent<SpriteRenderer>().sprite = pushLeft;
+                    //GetComponent<Animation>().animation = Idle;
                     g.transform.parent = this.transform;
                     box = g;
                 }
                 else if (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.right)) < 45)
                 {
                     leftrightmove = true;
-                    GetComponent<SpriteRenderer>().sprite = pushRight;
+                    //GetComponent<SpriteRenderer>().sprite = pushRight;
+                    //GetComponent<Animation>().animation = Idle;
                     g.transform.parent = this.transform;
                     box = g;
                 }
@@ -112,7 +117,8 @@ public class MonsterScript : MonoBehaviour
             {
                 if (box != null)
                 {
-                    GetComponent<SpriteRenderer>().sprite = Idle;
+                    //GetComponent<SpriteRenderer>().sprite = Idle;
+                    //GetComponent<Animation>().animation = Idle;
                     updownmove = false;
                     leftrightmove = false;
                     box.transform.parent = null;
