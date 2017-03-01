@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MonsterScript : MonoBehaviour
 {
-    private bool updownmove = false;
-    private bool leftrightmove = false;
+    private bool upmove = false;
+    private bool downmove = false;
+    private bool leftmove = false;
+    private bool rightmove = false;
 
+    private bool shouldChangeSprite = true;
     private bool movealt = false;
 
     public Sprite PushUpIdle;
@@ -41,16 +44,14 @@ public class MonsterScript : MonoBehaviour
     public Sprite Right1;
     public Sprite Right2;
 
-    public Sprite Death;
-
-
+    public GameObject DeadMonster;
     private bool inShadow = false;
 
     enum Direction { Left, Right, Up, Down, Null };
 
     private Direction lastdir = Direction.Null;
 
-    private Vector3 initialposition;
+    Vector3 initialposition;
     private GameObject box = null;
 
     private List<GameObject> collideList = new List<GameObject>();
@@ -69,50 +70,18 @@ public class MonsterScript : MonoBehaviour
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.W))
         {
             lastdir = Direction.Up;
-            if (updownmove)
-            {
-                GetComponent<SpriteRenderer>().sprite = PushUpIdle;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().sprite = UpIdle;
-            }
         }
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.A))
         { 
             lastdir = Direction.Left;
-            if (leftrightmove)
-            {
-                GetComponent<SpriteRenderer>().sprite = PushLeftIdle;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().sprite = LeftIdle;
-            }
         }
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.S))
         {
             lastdir = Direction.Down;
-            if (updownmove)
-            {
-                GetComponent<SpriteRenderer>().sprite = PushDownIdle;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().sprite = DownIdle;
-            }
         }
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.D))
         {
             lastdir = Direction.Right;
-            if (leftrightmove)
-            {
-                GetComponent<SpriteRenderer>().sprite = PushRightIdle;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().sprite = RightIdle;
-            }
         }
         if (lastdir == Direction.Up && Input.GetKeyUp(KeyCode.W))
             lastdir = Direction.Null;
@@ -122,123 +91,29 @@ public class MonsterScript : MonoBehaviour
             lastdir = Direction.Null;
         if (lastdir == Direction.Right && Input.GetKeyUp(KeyCode.D))
             lastdir = Direction.Null;
-        if (lastdir == Direction.Up && !leftrightmove)
+        if (lastdir == Direction.Up && !leftmove && !rightmove)
         {
             transform.Translate(speed * Vector2.up * Time.deltaTime);
-            if (updownmove)
-            {
-                if (movealt)
-                {
-                    GetComponent<SpriteRenderer>().sprite = PushUp1;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().sprite = PushUp2;
-                }
-                movealt = !movealt;
-            }
-            else
-            {
-                if (movealt)
-                {
-                    GetComponent<SpriteRenderer>().sprite = Up1;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().sprite = Up2;
-                }
-                movealt = !movealt;
-            }
         }
-        if (lastdir == Direction.Left && !updownmove)
+        if (lastdir == Direction.Left && !upmove && !downmove)
         {
             transform.Translate(speed * Vector2.left * Time.deltaTime);
-            if (leftrightmove)
-            {
-                if (movealt)
-                {
-                    GetComponent<SpriteRenderer>().sprite = PushLeft1;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().sprite = PushLeft2;
-                }
-                movealt = !movealt;
-            }
-            else
-            {
-                if (movealt)
-                {
-                    GetComponent<SpriteRenderer>().sprite = Left1;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().sprite = Left2;
-                }
-                movealt = !movealt;
-            }
         }
-        if (lastdir == Direction.Down && !leftrightmove)
+        if (lastdir == Direction.Down && !leftmove && !rightmove)
         {
             transform.Translate(speed * Vector2.down * Time.deltaTime);
-            if (updownmove)
-            {
-                if (movealt)
-                {
-                    GetComponent<SpriteRenderer>().sprite = PushDown1;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().sprite = PushDown2;
-                }
-                movealt = !movealt;
-            }
-            else
-            {
-                if (movealt)
-                {
-                    GetComponent<SpriteRenderer>().sprite = Down1;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().sprite = Down2;
-                }
-                movealt = !movealt;
-            }
         }
-        if (lastdir == Direction.Right && !updownmove)
+        if (lastdir == Direction.Right && !upmove && !downmove)
         {
             transform.Translate(speed * Vector2.right * Time.deltaTime);
-            if (leftrightmove)
-            {
-                if (movealt)
-                {
-                    GetComponent<SpriteRenderer>().sprite = PushRight1;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().sprite = PushRight2;
-                }
-                movealt = !movealt;
-            }
-            else
-            {
-                if (movealt)
-                {
-                    GetComponent<SpriteRenderer>().sprite = Right1;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().sprite = Right2;
-                }
-                movealt = !movealt;
-            }
         }
-        if (box != null && Input.GetKeyDown(KeyCode.Space) && (updownmove || leftrightmove))
+        if (box != null && Input.GetKeyDown(KeyCode.Space) && (upmove || downmove || leftmove || rightmove))
         {
             //GetComponent<SpriteRenderer>().sprite = Idle;
-            updownmove = false;
-            leftrightmove = false;
+            upmove = false;
+            downmove = false;
+            leftmove = false;
+            rightmove = false;
             box.transform.parent = null;
             box = null;
             return;
@@ -246,11 +121,11 @@ public class MonsterScript : MonoBehaviour
         inShadow = false;
         foreach (GameObject g in collideList)
         {
-            if (box == null && g!= null && (g.tag == "Box"||g.tag == "SmallBox")&& Input.GetKeyDown(KeyCode.Space) && !updownmove && !leftrightmove)
+            if (box == null && g!= null && (g.tag == "Box"||g.tag == "SmallBox")&& Input.GetKeyDown(KeyCode.Space) && !upmove &&!downmove && !leftmove && !rightmove)
             {
                 if (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.up)) < 45)
                 {
-                    updownmove = true;
+                    upmove = true;
                     //GetComponent<SpriteRenderer>().sprite = pushUp;
                     //GetComponent<Animation>().animation = Idle;
                     g.transform.parent = this.transform;
@@ -258,7 +133,7 @@ public class MonsterScript : MonoBehaviour
                 }
                 else if(Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.down)) < 45)
                 {
-                    updownmove = true;
+                    downmove = true;
                     //GetComponent<SpriteRenderer>().sprite = pushDown;
                     //GetComponent<Animation>().animation = Idle;
                     g.transform.parent = this.transform;
@@ -266,7 +141,7 @@ public class MonsterScript : MonoBehaviour
                 }
                 else if (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.left)) < 45)
                 {
-                    leftrightmove = true;
+                    leftmove = true;
                     //GetComponent<SpriteRenderer>().sprite = pushLeft;
                     //GetComponent<Animation>().animation = Idle;
                     g.transform.parent = this.transform;
@@ -274,7 +149,7 @@ public class MonsterScript : MonoBehaviour
                 }
                 else if (Mathf.Abs(Vector2.Angle((g.transform.position - this.transform.position), Vector2.right)) < 45)
                 {
-                    leftrightmove = true;
+                    rightmove = true;
                     //GetComponent<SpriteRenderer>().sprite = pushRight;
                     //GetComponent<Animation>().animation = Idle;
                     g.transform.parent = this.transform;
@@ -290,20 +165,242 @@ public class MonsterScript : MonoBehaviour
         {
             if (!inShadow && g != null && (g.tag == "WindowLight"|| g.tag == "CeilingLight"))
             {
-                if (box != null)
-                {
-                    //GetComponent<SpriteRenderer>().sprite = Idle;
-                    //GetComponent<Animation>().animation = Idle;
-                    updownmove = false;
-                    leftrightmove = false;
-                    box.transform.parent = null;
-                    box = null;
-                }
-                transform.position = initialposition;
+                respawnMonster();
             }
         }
     }
 
+    void OnGUI()
+    {
+        if (shouldChangeSprite)
+        {
+            if (lastdir == Direction.Null && Input.GetKey(KeyCode.W))
+            {
+                lastdir = Direction.Up;
+                if (upmove)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushUpIdle;
+                }
+                else if (downmove)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushDownIdle;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = UpIdle;
+                }
+            }
+            if (lastdir == Direction.Null && Input.GetKey(KeyCode.A))
+            {
+                lastdir = Direction.Left;
+                if (leftmove)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushLeftIdle;
+                }
+                else if (rightmove)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushRightIdle;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = LeftIdle;
+                }
+            }
+            if (lastdir == Direction.Null && Input.GetKey(KeyCode.S))
+            {
+                lastdir = Direction.Down;
+                if (upmove)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushUpIdle;
+                }
+                else if (downmove)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushDownIdle;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = DownIdle;
+                }
+            }
+            if (lastdir == Direction.Null && Input.GetKey(KeyCode.D))
+            {
+                lastdir = Direction.Right;
+                if (leftmove)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushLeftIdle;
+                }
+                else if (rightmove)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushRightIdle;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = RightIdle;
+                }
+            }
+            if (lastdir == Direction.Up && !leftmove && !rightmove)
+            {
+                transform.Translate(speed * Vector2.up * Time.deltaTime);
+                if (upmove)
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushUp1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushUp2;
+                    }
+                    movealt = !movealt;
+                }
+                else if (downmove)
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushDown1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushDown2;
+                    }
+                    movealt = !movealt;
+                }
+                else
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = Up1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = Up2;
+                    }
+                    movealt = !movealt;
+                }
+            }
+            if (lastdir == Direction.Left && !upmove && !downmove)
+            {
+                transform.Translate(speed * Vector2.left * Time.deltaTime);
+                if (leftmove)
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushLeft1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushLeft2;
+                    }
+                    movealt = !movealt;
+                }
+                else if (rightmove)
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushRight1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushRight2;
+                    }
+                    movealt = !movealt;
+                }
+                else
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = Left1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = Left2;
+                    }
+                    movealt = !movealt;
+                }
+            }
+            if (lastdir == Direction.Down && !leftmove && !rightmove)
+            {
+                transform.Translate(speed * Vector2.down * Time.deltaTime);
+                if (upmove)
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushUp1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushUp2;
+                    }
+                    movealt = !movealt;
+                }
+                else if (downmove)
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushDown1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushDown2;
+                    }
+                    movealt = !movealt;
+                }
+                else
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = Down1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = Down2;
+                    }
+                    movealt = !movealt;
+                }
+            }
+            if (lastdir == Direction.Right && !upmove && !downmove)
+            {
+                transform.Translate(speed * Vector2.right * Time.deltaTime);
+                if (leftmove)
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushLeft1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushLeft2;
+                    }
+                    movealt = !movealt;
+                }
+                else if (rightmove)
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushRight1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = PushRight2;
+                    }
+                    movealt = !movealt;
+                }
+                else
+                {
+                    if (movealt)
+                    {
+                        GetComponent<SpriteRenderer>().sprite = Right1;
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().sprite = Right2;
+                    }
+                    movealt = !movealt;
+                }
+            }
+            StartCoroutine(animDelay());
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         collideList.Add(other.gameObject);
@@ -311,6 +408,31 @@ public class MonsterScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         collideList.Remove(other.gameObject);
+    }
+
+    void respawnMonster()
+    {
+        if (box != null)
+        {
+            //GetComponent<SpriteRenderer>().sprite = Idle;
+            //GetComponent<Animation>().animation = Idle;
+            upmove = false;
+            downmove = false;
+            leftmove = false;
+            rightmove = false;
+            box.transform.parent = null;
+            box = null;
+        }
+        GameObject deadmonster = Instantiate(DeadMonster, transform.position,Quaternion.identity) as GameObject;
+        deadmonster.GetComponent<DeadMonsterRespawnScript>().respawnPosition = initialposition;
+        Destroy(this.gameObject);
+    }
+
+    IEnumerator animDelay()
+    {
+        shouldChangeSprite = false;
+        yield return new WaitForSeconds(0.2f);
+        shouldChangeSprite = true;
     }
 
 }
