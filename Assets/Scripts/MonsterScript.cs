@@ -7,6 +7,8 @@ public class MonsterScript : MonoBehaviour
     private bool updownmove = false;
     private bool leftrightmove = false;
 
+    private bool movealt = false;
+
     public Sprite PushUpIdle;
     public Sprite PushUp1;
     public Sprite PushUp2;
@@ -65,13 +67,53 @@ public class MonsterScript : MonoBehaviour
     void Update()
     {
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.W))
+        {
             lastdir = Direction.Up;
+            if (updownmove)
+            {
+                GetComponent<SpriteRenderer>().sprite = PushUpIdle;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = UpIdle;
+            }
+        }
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.A))
+        { 
             lastdir = Direction.Left;
+            if (leftrightmove)
+            {
+                GetComponent<SpriteRenderer>().sprite = PushLeftIdle;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = LeftIdle;
+            }
+        }
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.S))
+        {
             lastdir = Direction.Down;
+            if (updownmove)
+            {
+                GetComponent<SpriteRenderer>().sprite = PushDownIdle;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = DownIdle;
+            }
+        }
         if (lastdir == Direction.Null && Input.GetKey(KeyCode.D))
+        {
             lastdir = Direction.Right;
+            if (leftrightmove)
+            {
+                GetComponent<SpriteRenderer>().sprite = PushRightIdle;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = RightIdle;
+            }
+        }
         if (lastdir == Direction.Up && Input.GetKeyUp(KeyCode.W))
             lastdir = Direction.Null;
         if (lastdir == Direction.Left && Input.GetKeyUp(KeyCode.A))
@@ -81,17 +123,120 @@ public class MonsterScript : MonoBehaviour
         if (lastdir == Direction.Right && Input.GetKeyUp(KeyCode.D))
             lastdir = Direction.Null;
         if (lastdir == Direction.Up && !leftrightmove)
+        {
             transform.Translate(speed * Vector2.up * Time.deltaTime);
+            if (updownmove)
+            {
+                if (movealt)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushUp1;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushUp2;
+                }
+                movealt = !movealt;
+            }
+            else
+            {
+                if (movealt)
+                {
+                    GetComponent<SpriteRenderer>().sprite = Up1;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = Up2;
+                }
+                movealt = !movealt;
+            }
+        }
         if (lastdir == Direction.Left && !updownmove)
+        {
             transform.Translate(speed * Vector2.left * Time.deltaTime);
+            if (leftrightmove)
+            {
+                if (movealt)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushLeft1;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushLeft2;
+                }
+                movealt = !movealt;
+            }
+            else
+            {
+                if (movealt)
+                {
+                    GetComponent<SpriteRenderer>().sprite = Left1;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = Left2;
+                }
+                movealt = !movealt;
+            }
+        }
         if (lastdir == Direction.Down && !leftrightmove)
+        {
             transform.Translate(speed * Vector2.down * Time.deltaTime);
+            if (updownmove)
+            {
+                if (movealt)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushDown1;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushDown2;
+                }
+                movealt = !movealt;
+            }
+            else
+            {
+                if (movealt)
+                {
+                    GetComponent<SpriteRenderer>().sprite = Down1;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = Down2;
+                }
+                movealt = !movealt;
+            }
+        }
         if (lastdir == Direction.Right && !updownmove)
+        {
             transform.Translate(speed * Vector2.right * Time.deltaTime);
+            if (leftrightmove)
+            {
+                if (movealt)
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushRight1;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = PushRight2;
+                }
+                movealt = !movealt;
+            }
+            else
+            {
+                if (movealt)
+                {
+                    GetComponent<SpriteRenderer>().sprite = Right1;
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().sprite = Right2;
+                }
+                movealt = !movealt;
+            }
+        }
         if (box != null && Input.GetKeyDown(KeyCode.Space) && (updownmove || leftrightmove))
         {
             //GetComponent<SpriteRenderer>().sprite = Idle;
-            //GetComponent<Animation>().animation = Idle;
             updownmove = false;
             leftrightmove = false;
             box.transform.parent = null;
