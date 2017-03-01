@@ -19,10 +19,7 @@ Bugs:
 
 Planned Features:
 -Help menu
--Credits
 -shadow assets
--Make Timer more obvious and count down
--Second level
+-Make Timer more obvious
 -Kid pushed smaller boxes
 -Add rug
--Change Movement Speeds

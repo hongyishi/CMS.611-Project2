@@ -8,7 +8,7 @@ public class TimerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        timer = 300;
 	}
 	
 	// Update is called once per frame
@@ -23,10 +23,12 @@ public class TimerScript : MonoBehaviour {
             Application.LoadLevel(1);
         }
 
-        timer += Time.deltaTime;
+        timer -= Time.deltaTime;
 
-        if (Mathf.FloorToInt(timer / 60F) >= 5)
+        if (timer <= 0)
+        {
             Application.Quit();
+        }
     }
     void OnGUI()
     {
@@ -34,6 +36,6 @@ public class TimerScript : MonoBehaviour {
         int seconds = Mathf.FloorToInt(timer - minutes * 60);
         string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-        GUI.Label(new Rect(10, 10, 250, 100), niceTime);
+        GUI.Label(new Rect(10, 10, 500, 200), niceTime);
     }
 }
